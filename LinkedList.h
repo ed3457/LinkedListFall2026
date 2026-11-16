@@ -30,7 +30,7 @@ public:
 
 	int operator [](int index);
 
-	void clearList();// empty and deallocte the nodes
+	//void clearList();// empty and deallocte the nodes
 
 	void insertAtStart(int item); 
 
