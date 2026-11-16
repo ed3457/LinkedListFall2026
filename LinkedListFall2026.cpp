@@ -34,10 +34,12 @@ int main()
 	/*list1.deleteFirstNode();
 	cout << list1.getFirstNode() << endl;*/
 
-	list1.clearList();
+	//list1.clearList();
 
-	cout << list1.isEmpty() << endl;
+	//cout << list1.isEmpty() << endl;
 
+	list1.insertAtEnd(10);
+	list1.printListInfo();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

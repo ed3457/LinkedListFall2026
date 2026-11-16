@@ -34,11 +34,20 @@ public:
 
 	void insertAtStart(int item); 
 
+	void insertAtEnd(int item);
+
+	//void insertAtIndex(int index, int item);
+
 	int getFirstNode();
 
 	int getLastNode();
 
 	void deleteFirstNode();
+
+	//void deleteLastNode();
+
+	//void deleteAtIndex(int index);
+
 
 
 };

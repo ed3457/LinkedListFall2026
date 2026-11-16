@@ -100,6 +100,43 @@ void LinkedList::insertAtStart(int item)
 
 }
 
+void LinkedList::insertAtEnd(int item)
+{
+	//0. ask if the list is empty, if yes, then use insert at start 
+	if (isEmpty())
+	{
+		insertAtStart(item);
+		return;
+	}
+
+	// 1. Create a new node
+
+	nodeType* newNode = new nodeType;
+	newNode->info = item;
+	newNode->link = NULL;
+
+	// 2. traverse to the last node 
+
+	nodeType* temp = head; 
+
+	while (temp->link != NULL)
+	{
+		temp = temp->link;
+
+	}
+
+	//3. make the link for the last node point to the new node
+
+	temp->link = newNode;
+
+	// 4. increment length
+	length++; 
+
+
+
+
+}
+
 int LinkedList::getFirstNode()
 {
 	return (*this)[0];
