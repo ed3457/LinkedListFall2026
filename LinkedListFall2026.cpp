@@ -2,10 +2,42 @@
 //
 
 #include <iostream>
+#include "LinkedList.h"
+using namespace std; 
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	LinkedList list1; 
+
+	/*cout << list1.getLength()<<endl;
+
+	cout << list1.isEmpty() << endl;*/
+
+	list1.insertAtStart(4);
+	list1.insertAtStart(5);
+	list1.insertAtStart(1);
+	list1.insertAtStart(0);
+	list1.insertAtStart(3);
+
+	/*list1.printListInfo();
+
+	cout << list1[4] << endl;
+
+	cout << list1.getLength() << endl;
+
+	cout << list1.search(3) << endl;*/
+
+	/*cout << list1.getFirstNode() << endl;
+	cout << list1.getLastNode() << endl;*/
+
+
+	/*list1.deleteFirstNode();
+	cout << list1.getFirstNode() << endl;*/
+
+	list1.clearList();
+
+	cout << list1.isEmpty() << endl;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

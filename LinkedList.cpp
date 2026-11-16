@@ -52,10 +52,10 @@ int LinkedList::search(int item)
 
 int LinkedList::operator[](int index)
 {
-	if (index <0 || index> length)
+	if (index <0 || index> length-1)
 		throw 0; // out of index 
 
-	if (length == 0)
+	if (isEmpty())
 		throw 1; // the list is empty 
 
 	nodeType* temp = head; 
@@ -72,6 +72,12 @@ int LinkedList::operator[](int index)
 
 	}
 
+}
+
+void LinkedList::clearList()
+{
+	while (!isEmpty())
+		deleteFirstNode();
 }
 
 void LinkedList::insertAtStart(int item)
@@ -92,4 +98,31 @@ void LinkedList::insertAtStart(int item)
 
 	length++; 
 
+}
+
+int LinkedList::getFirstNode()
+{
+	return (*this)[0];
+}
+
+int LinkedList::getLastNode()
+{
+	return (*this)[length-1];
+}
+
+void LinkedList::deleteFirstNode()
+{
+	if (isEmpty())
+		throw 1;
+
+	//1
+	nodeType* temp = head; 
+
+	// 2. 
+	head = head->link; 
+
+	//3. 
+	delete temp; 
+
+	length--;
 }
