@@ -44,7 +44,7 @@ public:
 
 	void deleteFirstNode();
 
-	//void deleteLastNode();
+	void deleteLastNode();
 
 	//void deleteAtIndex(int index);
 

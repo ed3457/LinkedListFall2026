@@ -209,3 +209,28 @@ void LinkedList::deleteFirstNode()
 
 	length--;
 }
+
+void LinkedList::deleteLastNode()
+{
+	// validation 
+	if (isEmpty())
+		throw 1;
+
+	// navigation to the next to last node
+
+	nodeType* temp = head; 
+	while (temp->link->link != NULL)
+		temp = temp->link; 
+
+	// delete the last node
+
+	delete temp->link; 
+
+	temp->link = NULL; 
+
+	// decrement the length 
+
+	length--; 
+
+
+}

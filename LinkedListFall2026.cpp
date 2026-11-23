@@ -42,6 +42,8 @@ int main()
 
 	list1.insertAtIndex(2, 100);
 	list1.insertAtIndex(2, 80);
+
+	list1.deleteLastNode();
 	list1.printListInfo();
 }
 
