@@ -137,6 +137,52 @@ void LinkedList::insertAtEnd(int item)
 
 }
 
+void LinkedList::insertAtIndex(int index, int item)
+{
+	// validation 
+	if (index <0 || index> length - 1)
+		throw 0; // out of index 
+
+	if (index == 0)
+	{
+		insertAtStart(item);
+		return; 
+
+	}
+
+	if (index == length-1)
+	{
+		insertAtEnd(item);
+		return;
+
+	}
+
+	// navigate to the index-1
+	nodeType *temp = head;
+	int tempIndex = 0;
+	while (tempIndex != index - 1)
+	{
+		temp = temp->link;
+		tempIndex++;
+	}
+
+	// create the new node
+	
+	nodeType* newNode = new nodeType();
+	newNode->info = item;
+	newNode->link = NULL;
+
+	// change the pointers 
+
+	newNode->link = temp->link;
+	temp->link = newNode; 
+
+	// increment the length
+	length++;
+
+
+}
+
 int LinkedList::getFirstNode()
 {
 	return (*this)[0];

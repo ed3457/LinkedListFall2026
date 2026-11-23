@@ -38,7 +38,10 @@ int main()
 
 	//cout << list1.isEmpty() << endl;
 
-	list1.insertAtEnd(10);
+	//list1.insertAtEnd(10);
+
+	list1.insertAtIndex(2, 100);
+	list1.insertAtIndex(2, 80);
 	list1.printListInfo();
 }
 

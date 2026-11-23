@@ -36,7 +36,7 @@ public:
 
 	void insertAtEnd(int item);
 
-	//void insertAtIndex(int index, int item);
+	void insertAtIndex(int index, int item);
 
 	int getFirstNode();
 
@@ -47,6 +47,8 @@ public:
 	//void deleteLastNode();
 
 	//void deleteAtIndex(int index);
+
+	//void OrderedInsert(int item)
 
 
 
