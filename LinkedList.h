@@ -53,6 +53,8 @@ public:
 
 	//void OrderedInsert(int item)
 
+	 void sort(bool asc); 
+
 
 
 };

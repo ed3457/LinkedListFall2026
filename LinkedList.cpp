@@ -1,5 +1,7 @@
 #include "LinkedList.h"
+#include <algorithm>
 #include <iostream>
+#include <vector>
 using namespace std;
 LinkedList::LinkedList()
 {
@@ -14,12 +16,12 @@ int LinkedList::getLength()
 
 bool LinkedList::isEmpty()
 {
-	return head==NULL;
+	return head == NULL;
 }
 
 void LinkedList::printListInfo()
 {
-	nodeType* temp = head; 
+	nodeType* temp = head;
 
 	while (temp != NULL)
 	{
@@ -32,9 +34,9 @@ void LinkedList::printListInfo()
 
 int LinkedList::search(int item)
 {
-	int index = -1; 
+	int index = -1;
 
-	nodeType* temp = head; 
+	nodeType* temp = head;
 
 	while (temp != NULL)
 	{
@@ -52,15 +54,15 @@ int LinkedList::search(int item)
 
 int LinkedList::operator[](int index)
 {
-	if (index <0 || index> length-1)
+	if (index <0 || index> length - 1)
 		throw 0; // out of index 
 
 	if (isEmpty())
 		throw 1; // the list is empty 
 
-	nodeType* temp = head; 
+	nodeType* temp = head;
 
-	int tempIndex = 0; 
+	int tempIndex = 0;
 
 	while (temp != NULL)
 	{
@@ -85,18 +87,18 @@ void LinkedList::insertAtStart(int item)
 	// 1. Create a new node
 
 	nodeType* newNode = new nodeType;
-	newNode->info = item; 
-	newNode->link = NULL; 
+	newNode->info = item;
+	newNode->link = NULL;
 
 	//2. link the link of the new node to the head
 
-	newNode->link = head; 
+	newNode->link = head;
 
 	head = newNode;
 
 	//3. increment the length
 
-	length++; 
+	length++;
 
 }
 
@@ -117,7 +119,7 @@ void LinkedList::insertAtEnd(int item)
 
 	// 2. traverse to the last node 
 
-	nodeType* temp = head; 
+	nodeType* temp = head;
 
 	while (temp->link != NULL)
 	{
@@ -130,7 +132,7 @@ void LinkedList::insertAtEnd(int item)
 	temp->link = newNode;
 
 	// 4. increment length
-	length++; 
+	length++;
 
 
 
@@ -146,11 +148,11 @@ void LinkedList::insertAtIndex(int index, int item)
 	if (index == 0)
 	{
 		insertAtStart(item);
-		return; 
+		return;
 
 	}
 
-	if (index == length-1)
+	if (index == length - 1)
 	{
 		insertAtEnd(item);
 		return;
@@ -158,7 +160,7 @@ void LinkedList::insertAtIndex(int index, int item)
 	}
 
 	// navigate to the index-1
-	nodeType *temp = head;
+	nodeType* temp = head;
 	int tempIndex = 0;
 	while (tempIndex != index - 1)
 	{
@@ -167,7 +169,7 @@ void LinkedList::insertAtIndex(int index, int item)
 	}
 
 	// create the new node
-	
+
 	nodeType* newNode = new nodeType();
 	newNode->info = item;
 	newNode->link = NULL;
@@ -175,7 +177,7 @@ void LinkedList::insertAtIndex(int index, int item)
 	// change the pointers 
 
 	newNode->link = temp->link;
-	temp->link = newNode; 
+	temp->link = newNode;
 
 	// increment the length
 	length++;
@@ -190,7 +192,7 @@ int LinkedList::getFirstNode()
 
 int LinkedList::getLastNode()
 {
-	return (*this)[length-1];
+	return (*this)[length - 1];
 }
 
 void LinkedList::deleteFirstNode()
@@ -199,13 +201,13 @@ void LinkedList::deleteFirstNode()
 		throw 1;
 
 	//1
-	nodeType* temp = head; 
+	nodeType* temp = head;
 
 	// 2. 
-	head = head->link; 
+	head = head->link;
 
 	//3. 
-	delete temp; 
+	delete temp;
 
 	length--;
 }
@@ -218,19 +220,19 @@ void LinkedList::deleteLastNode()
 
 	// navigation to the next to last node
 
-	nodeType* temp = head; 
+	nodeType* temp = head;
 	while (temp->link->link != NULL)
-		temp = temp->link; 
+		temp = temp->link;
 
 	// delete the last node
 
-	delete temp->link; 
+	delete temp->link;
 
-	temp->link = NULL; 
+	temp->link = NULL;
 
 	// decrement the length 
 
-	length--; 
+	length--;
 
 
 }
@@ -266,12 +268,12 @@ void LinkedList::deleteAtIndex(int index)
 	}
 
 	// add another pointer to point to the node we want to delete
-	nodeType* nodeToDelete = temp->link; 
+	nodeType* nodeToDelete = temp->link;
 
 
 	// change the pointers 
 
-	temp->link = temp->link->link; 
+	temp->link = temp->link->link;
 
 	delete nodeToDelete;
 
@@ -282,7 +284,7 @@ void LinkedList::deleteAtIndex(int index)
 }
 
 LinkedList* LinkedList::copyList()
-{  
+{
 	// deep copy 
 
 	// create a new list 
@@ -300,4 +302,31 @@ LinkedList* LinkedList::copyList()
 	}
 
 	return newList;
+}
+
+void LinkedList::sort(bool asc)
+{
+
+	std::vector<int> v;
+	nodeType* temp = head;
+
+	while (temp != NULL)
+	{
+		v.push_back(temp->info);
+		temp = temp->link; 
+	}
+
+	std::sort(v.begin(), v.end()); 
+
+	clearList();
+
+	for (int i = 0; i < v.size(); i++)
+	{   
+		if (asc)
+			insertAtEnd(v[i]);
+
+		else
+			insertAtStart(v[i]);
+	}
+
 }

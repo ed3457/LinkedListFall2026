@@ -50,9 +50,13 @@ int main()
 	list1.printListInfo();
 
 
-	LinkedList* copy = list1.copyList();// deep copy 
+	//LinkedList* copy = list1.copyList();// deep copy 
 
-	copy->printListInfo();
+	//copy->printListInfo();
+
+	list1.sort(false);
+
+	list1.printListInfo();
 
 }
 
