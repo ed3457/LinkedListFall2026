@@ -46,7 +46,10 @@ public:
 
 	void deleteLastNode();
 
-	//void deleteAtIndex(int index);
+	void deleteAtIndex(int index);
+
+
+	LinkedList* copyList(); 
 
 	//void OrderedInsert(int item)
 

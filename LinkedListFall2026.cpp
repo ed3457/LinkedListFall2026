@@ -40,11 +40,20 @@ int main()
 
 	//list1.insertAtEnd(10);
 
-	list1.insertAtIndex(2, 100);
-	list1.insertAtIndex(2, 80);
+	/*list1.insertAtIndex(2, 100);
+	list1.insertAtIndex(2, 80);*/
 
-	list1.deleteLastNode();
+	//list1.deleteLastNode();
+
+	//list1.deleteAtIndex(1);
+
 	list1.printListInfo();
+
+
+	LinkedList* copy = list1.copyList();// deep copy 
+
+	copy->printListInfo();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

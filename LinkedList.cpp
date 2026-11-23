@@ -234,3 +234,70 @@ void LinkedList::deleteLastNode()
 
 
 }
+
+void LinkedList::deleteAtIndex(int index)
+{
+
+	// validation 
+	if (index <0 || index> length - 1)
+		throw 0; // out of index 
+
+	if (index == 0)
+	{
+		deleteFirstNode();
+		return;
+
+	}
+
+	if (index == length - 1)
+	{
+		deleteLastNode();
+		return;
+
+	}
+
+	// navigate to the index-1
+	nodeType* temp = head;
+	int tempIndex = 0;
+	while (tempIndex != index - 1)
+	{
+		temp = temp->link;
+		tempIndex++;
+	}
+
+	// add another pointer to point to the node we want to delete
+	nodeType* nodeToDelete = temp->link; 
+
+
+	// change the pointers 
+
+	temp->link = temp->link->link; 
+
+	delete nodeToDelete;
+
+	// decrement length 
+
+	length--;
+
+}
+
+LinkedList* LinkedList::copyList()
+{  
+	// deep copy 
+
+	// create a new list 
+
+	LinkedList* newList = new LinkedList();
+
+	// Traverse and read the items one by one, 
+	// and insert them at the end of the new list 
+
+	nodeType* temp = head;
+	while (temp != NULL)
+	{
+		newList->insertAtEnd(temp->info);
+		temp = temp->link;
+	}
+
+	return newList;
+}
